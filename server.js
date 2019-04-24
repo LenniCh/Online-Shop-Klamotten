@@ -15,3 +15,5 @@ let db = new sqlite3.Database('shop.db');
 app.listen(3000, function(){
 	console.log("listening on 3000");
 });
+
+// Fuck You
