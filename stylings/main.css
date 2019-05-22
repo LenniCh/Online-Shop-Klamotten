@@ -1,0 +1,99 @@
+header {
+  margin: 80px;
+  padding: 50px 0 50px 0;
+}
+
+.bg-black{ background-color: rgba(14,14,14,1.00)}
+
+footer {
+  border-top: 1px;
+  text-align: left;
+  padding: 20px;
+  background-color: rgb(54, 54, 54);
+}
+
+
+
+.column-layout {
+max-width: 1300px;
+
+margin: 40px auto 50px auto;
+line-height: 1.65;
+padding: 100px 50px;
+display: flex;
+}
+
+.main-column {
+flex: 1;
+}
+
+.sidebar {
+  margin: 25px;
+  flex: 1;
+}
+
+.sidebar2 {
+
+  flex: 1;
+}
+
+
+
+
+
+
+html {
+    background-color: rgb(255, 255, 255);
+    font-family: sans-serif;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    box-sizing: border-box;
+    width: 50%;
+    padding: .25rem;
+    font-size: 1rem;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+}
+
+button {
+    
+    background-color: #6BC5FF;
+    color: white;
+    font-weight: 100;
+    font-size: 1rem;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #569DCC;
+}
+
+.card {
+    max-width: 50vw;
+    min-width: 360px;
+    margin: 5rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.headline {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 100;
+}
+
+.error {
+    font-size: 1rem;
+    font-weight: bold;
+} 
+
