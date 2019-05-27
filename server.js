@@ -16,4 +16,13 @@ app.listen(3000, function(){
 	console.log("listening on 3000");
 });
 
-// Fuck You
+app.get("/bs", function(req,res){
+	res.render('bs');
+});
+app.get("/pullover", function(req,res){
+	res.render('pullover');
+});
+app.get("/thrasher", function(req,res){
+	res.render('thrasher');
+});
+app.use(express.static(__dirname+'/pics'));
