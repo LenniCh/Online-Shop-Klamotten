@@ -8,8 +8,12 @@
 
             .textInput {
                 border: none;
-                border-radius: 4px;
-                padding-right: 32px;
+                border-radius: 2px;
+                width: 256px;
+            }
+
+            input[type=text]:focus {
+                border: 3px solid #555;
             }
             
             .addProd {
@@ -86,32 +90,33 @@
             <div class="dropup">
                 <button class="dropbtn" width="100%">+</button>
                 <div class="dropup-content">
-                    <form class="addingProduct" action="post">
+                    <form class="addingProduct" action="/addProduct" method="post">
                         <h3>Produkt hinzufügen</h3><br>
-                        Artikelbezeichnung <br>
-                        <input type="text" class="formular textInput" name="Artikelbezeichnung" id="productname"><br><br>
+                        Artikelbezeichnung/ Name <br>
+                        <input type="text" class="formular textInput" name="name" id="productname"><br><br>
                         Kategorie <br>
-                        <select name="Kategorien" class="formular" id="categories">
-                            <option value="T-Shirt">T-Shirt</option>
-                            <option value="Pullover">Pullover</option>
-                            <option value="Jacken">Jacke</option>
-                            <option value="Hosen">Hose</option>
-                            <option value="Schuhe">Schuhe</option>
-                            <option value="Accessoires">Accessoires</option>
+                        <select name="kategorie" class="formular" id="categories">
+                            <option value="T-Shirt" name="T-Shirt">T-Shirt</option>
+                            <option value="Pullover" name="Pullover">Pullover</option>
+                            <option value="Jacken" name="Jacke">Jacke</option>
+                            <option value="Hosen" name="Hose">Hose</option>
+                            <option value="Schuhe" name="Schuhe">Schuhe</option>
+                            <option value="Accessoires" name="Accesoire">Accessoires</option>
                         </select><br><br>
                         Preis <br>
-                        <input type="number" name="Preis" class="formular textInput" id="price"><br><br>
-                        Größe <br>
-                        <select name="Groeßen" class="formular" id="sizes">
-                            <option value="none">Onesize</option>
-                            <option value="extra-small">XS</option>
-                            <option value="small">S</option>
-                            <option value="medium">M</option>
-                            <option value="large">L</option>
-                            <option value="extra-large">XL</option>
-                        </select><br><br>
+                        <input type="number" name="preis" class="formular textInput" id="price"><br><br>
+                        Größe(n) <br>
+                        <div>
+                            <input type="checkbox" id="s" name="s" checked>
+                            <label for="s">S</label>
+                            <input type="checkbox" id="m" name="m">
+                            <label for="m">M</label>
+                            <input type="checkbox" id="l" name="l">
+                            <label for="l">L</label>
+                        </div>    
+                        <br>
                         Farbe <br>
-                        <select name="Farben" class="formular" id="colours">
+                        <select name="farbe" class="formular" id="colours">
                             <option value="white">Weiß</option>
                             <option value="black">Schwarz</option>
                             <option value="red">Rot</option>
@@ -120,7 +125,7 @@
                             <option value="yellow">Gelb</option>
                         </select><br><br>
                         Bild <br>
-                        <input type="url" name="Bildlink" class="formular textInput" id="image-link"><br>
+                        <input type="text" name="bildlink" class="formular textInput" id="image-link"><br>
                         <br><br>
                         <button type="submit" class="formular">Hinzufügen</button>
                     </form>

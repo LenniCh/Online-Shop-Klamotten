@@ -154,7 +154,8 @@ app.post('/register', (request, response) => {
 	});
 });
 
-function sessionCheck(request, response) {
+// Versuchsfunktion zum checken ob Session aktiv
+/* function sessionCheck(request, response) {
 	if(!request.session.authenticated) {
 		response.render('navbar');
 		console.log("render navbar");
@@ -163,7 +164,39 @@ function sessionCheck(request, response) {
 		response.render('addproduct');
 		console.log("render sessionnavbar");
 	}
-}
+} */
+
+// addproduct-Formular auswerten
+app.post("/addProduct", function(request, response){
+	// const produktID = AUTOINCREMET PRIMARY KEY
+	const name = request.body.name;
+	const kategorie = request.body.kategorie;
+	const s = request.body.s;
+	const m = request.body.m;
+	const l = request.body.l;
+	const farbe = request.body.farbe;
+	const preis = request.body.preis;
+	const anbieter = "ich";
+	const bild = request.body.bildlink;
+	console.log(name);
+	console.log(kategorie);
+	console.log(s);
+	console.log(m);
+	console.log(l);
+	console.log(farbe);
+	console.log(preis);
+	console.log(anbieter);
+	console.log(bild);
+
+	// Datensatz in Tabelle produkte einfügen
+	const sql = `INSERT INTO produkte (name, kategorie, s, m, l, farbe, preis, anbieter, bild) 
+		VALUES ('${name}', '${kategorie}', '${s}', '${m}', '${l}', '${farbe}', '${preis}', '${anbieter}', '${bild}')`;
+	console.log(sql);
+	db.run(sql, function(err){
+		response.redirect("/anbieter");
+	});
+	 
+});
 
 app.get('/anbieter', (request, response) => {
 	response.render('anbieter');
