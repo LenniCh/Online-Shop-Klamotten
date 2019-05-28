@@ -1,45 +1,130 @@
-<div class="addProd">
-    <div class="dropup">
-        <button class="dropbtn" width="100%">+</button>
-        <div class="dropup-content">
-            <form class="addingProduct" action="post">
-                <h3>Produkt hinzufügen</h3><br>
-                Artikelbezeichnung <br>
-                <input type="text" class="formular" name="Artikelbezeichnung" id="productname"><br><br>
-                Kategorie <br>
-                <select name="Kategorien" class="formular" id="categories">
-                    <option value="T-Shirt">T-Shirt</option>
-                    <option value="Pullover">Pullover</option>
-                    <option value="Jacken">Jacke</option>
-                    <option value="Hosen">Hose</option>
-                    <option value="Schuhe">Schuhe</option>
-                    <option value="Accessoires">Accessoires</option>
-                </select><br><br>
-                Preis <br>
-                <input type="number" name="Preis" class="formular" id="price"><br><br>
-                Größe <br>
-                <select name="Groeßen" class="formular" id="sizes">
-                    <option value="none">Onesize</option>
-                    <option value="extra-small">XS</option>
-                    <option value="small">S</option>
-                    <option value="medium">M</option>
-                    <option value="large">L</option>
-                    <option value="extra-large">XL</option>
-                </select><br><br>
-                Farbe <br>
-                <select name="Farben" class="formular" id="colours">
-                    <option value="white">Weiß</option>
-                    <option value="black">Schwarz</option>
-                    <option value="red">Rot</option>
-                    <option value="green">Grün</option>
-                    <option value="blue">Blau</option>
-                    <option value="yellow">Gelb</option>
-                </select><br><br>
-                Bild <br>
-                <input type="url" name="Bildlink" class="formular" id="image-link"><br>
-                <br><br>
-                <button type="submit" class="formular">Hinzufügen</button>
-            </form>
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .formular {
+                color:black;
+            }
+
+            .textInput {
+                border: none;
+                border-radius: 4px;
+                padding-right: 32px;
+            }
+            
+            .addProd {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 85px;
+                color: white;
+                text-align: center;
+                opacity: 0.7;
+            }
+            
+            .addProd:hover {
+                opacity: 1;
+            }
+            
+            .addProdButton {
+                padding-top: 10px;
+                padding-bottom: 10px;
+                font-size: 45px;
+            }
+            
+            .addingProduct {
+                background: rgba(77, 187, 43, 0.603);
+                text-align: left;
+                padding-left: 10px;
+                padding-right: 70px;
+                padding-bottom: 30px;
+                padding-top: 1px;
+            }
+            
+            .dropbtn {
+                background-color: rgb(77, 187, 43);
+                color: white;
+                padding: 16px;
+                font-size: 28px;
+                border: none;
+                width: 85px;
+            }
+            
+            .dropup {
+                position: relative;
+                display: inline-block;
+            }
+            
+            .dropup-content {
+                display: none;
+                position: absolute;
+                background-color: rgba(77, 187, 43, 0.603);
+                min-width: 300px;
+                bottom: 70px;
+                z-index: 1;
+            }
+            
+            .dropup-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+            
+            .dropup-content a:hover {background-color: #ccc}
+            
+            .dropup:hover .dropup-content {
+                display: block;
+            }
+            
+            .dropup:hover .dropbtn {
+                background-color: rgb(77, 187, 43);
+            }
+        </style>
+    </head>
+        <div class="addProd">
+            <div class="dropup">
+                <button class="dropbtn" width="100%">+</button>
+                <div class="dropup-content">
+                    <form class="addingProduct" action="post">
+                        <h3>Produkt hinzufügen</h3><br>
+                        Artikelbezeichnung <br>
+                        <input type="text" class="formular textInput" name="Artikelbezeichnung" id="productname"><br><br>
+                        Kategorie <br>
+                        <select name="Kategorien" class="formular" id="categories">
+                            <option value="T-Shirt">T-Shirt</option>
+                            <option value="Pullover">Pullover</option>
+                            <option value="Jacken">Jacke</option>
+                            <option value="Hosen">Hose</option>
+                            <option value="Schuhe">Schuhe</option>
+                            <option value="Accessoires">Accessoires</option>
+                        </select><br><br>
+                        Preis <br>
+                        <input type="number" name="Preis" class="formular textInput" id="price"><br><br>
+                        Größe <br>
+                        <select name="Groeßen" class="formular" id="sizes">
+                            <option value="none">Onesize</option>
+                            <option value="extra-small">XS</option>
+                            <option value="small">S</option>
+                            <option value="medium">M</option>
+                            <option value="large">L</option>
+                            <option value="extra-large">XL</option>
+                        </select><br><br>
+                        Farbe <br>
+                        <select name="Farben" class="formular" id="colours">
+                            <option value="white">Weiß</option>
+                            <option value="black">Schwarz</option>
+                            <option value="red">Rot</option>
+                            <option value="green">Grün</option>
+                            <option value="blue">Blau</option>
+                            <option value="yellow">Gelb</option>
+                        </select><br><br>
+                        Bild <br>
+                        <input type="url" name="Bildlink" class="formular textInput" id="image-link"><br>
+                        <br><br>
+                        <button type="submit" class="formular">Hinzufügen</button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+</html>
