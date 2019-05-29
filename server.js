@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express()
 const bodyParser= require('body-parser')
+const fs = require('fs');
 app.use(bodyParser.urlencoded({extended: true}))
 
 // initialize ejs template engine
@@ -17,6 +18,8 @@ app.listen(3000, function(){
 });
 
 app.use(express.static(__dirname + '/images'));
+app.use(express.static(__dirname + '/stylings'));
+
 
 const session = require('express-session');
 app.use(session({
@@ -200,6 +203,10 @@ app.post("/addProduct", function(request, response){
 
 app.get('/anbieter', (request, response) => {
 	response.render('anbieter');
+});
+
+app.get('/artikel', (request, response) => {
+	response.render('artikel');
 });
 
 app.get('/shirts', (request, response)=>{

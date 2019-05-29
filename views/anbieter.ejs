@@ -7,65 +7,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <style>
-            .container4Kat {
-                position: relative;
-                width: 100%;
-            }
+        <link href="main.css" rel="stylesheet" type="text/css">
 
-            .image {
-                opacity: 1;
-                display: block;
-                width: 100%;
-                height: auto;
-                transition: .5s ease;
-                backface-visibility: hidden;
-                padding: 2px;
-            }
-
-            .middle {
-                transition: .5s ease;
-                opacity: 1;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                -ms-transform: translate(-50%, -50%);
-                text-align: center;
-            }
-
-            .container4Kat:hover .image {
-                opacity: 0.3;
-            }
-
-            .container4Kat:hover .middle {
-                opacity: 1;
-            }
-
-            .categorytext {
-                color: white;
-                font-size: 40px;
-                padding: 16px 16px;
-            }
-
-            .categorytext:hover {
-                color: dimgray;
-            }
-
-            .row {
-            padding: 16px 38px;
-            }   
-
-            .eigeneWorteContent {
-                color: lightslategray;
-                display: block;
-                padding-left: 5px;
-            }
-
-            .eigeneWorte {
-                padding-left: 5px;
-            }
-        </style>
     </head>
     <body>
         <% include sessionnavbar %>
@@ -85,11 +28,11 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row categoryRow">
             <div class="col-sm-4">
                 <a href="/shirts" class="img-responsive" alt="T-Shirts" method="GET">
                     <div class="container4Kat">
-                        <img src="tshirt_stack.jpg" alt="T-Shirts" class="image">
+                        <img src="tshirt_stack.jpg" alt="T-Shirts" class="categoryimage">
                         <div class="middle">
                             <div class="categorytext">T-Shirts</div>
                         </div>
@@ -99,7 +42,7 @@
             <div class="col-sm-4">
                 <a href="/pullis" class="img-responsive">
                     <div class="container4Kat">
-                        <img src="pullover_stack.jpg" alt="Pullis" class="image">
+                        <img src="pullover_stack.jpg" alt="Pullis" class="categoryimage">
                         <div class="middle">
                             <div class="categorytext">Pullover</div>
                         </div>
@@ -109,7 +52,7 @@
             <div class="col-sm-4">
                 <a href="/jacken" class="img-responsive">
                     <div class="container4Kat">
-                        <img src="jacken.jpg" alt="Jacken" class="image">
+                        <img src="jacken.jpg" alt="Jacken" class="categoryimage">
                         <div class="middle">
                             <div class="categorytext">Jacken</div>
                         </div>
@@ -117,11 +60,11 @@
                 </a>
             </div>
         </div>
-        <div class="row">
+        <div class="row categoryRow">
             <div class="col-sm-4">
                 <a href="/hosen" class="img-responsive">
                     <div class="container4Kat">
-                        <img src="hosen.jpg" alt="Hosen" class="image">
+                        <img src="hosen.jpg" alt="Hosen" class="categoryimage">
                         <div class="middle">
                             <div class="categorytext">Hosen</div>
                         </div>
@@ -131,7 +74,7 @@
             <div class="col-sm-4">
                 <a href="/schuhe" class="img-responsive">
                     <div class="container4Kat">
-                        <img src="schuhe.jpg" alt="T-Shirts" class="image">
+                        <img src="schuhe.jpg" alt="T-Shirts" class="categoryimage">
                         <div class="middle">
                             <div class="categorytext">Schuhe</div>
                         </div>
@@ -141,7 +84,7 @@
             <div class="col-sm-4">
                 <a href="/accessoires" class="img-responsive">
                     <div class="container4Kat">
-                        <img src="accessoires.jpg" alt="T-Shirts" class="image">
+                        <img src="accessoires.jpg" alt="T-Shirts" class="categoryimage">
                         <div class="middle">
                             <div class="categorytext">Accessoires</div>
                         </div>
@@ -154,10 +97,6 @@
                 <div class="page-header text-center">
                 </div>
         </div>
-        <br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br>
         
         <% include addproduct %>
     </body>
