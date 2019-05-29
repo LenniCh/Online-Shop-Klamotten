@@ -1,56 +1,131 @@
 <!doctype html>
 <html lang="en">
 
-<head>
+    <head>
 
-  <link href="main.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="css/bootstrap4.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/style.css">
-
-
-
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-  <title>Shop</title>
-
-  <link rel="stylesheet" type="text/css" href="stylings/main.css">
+            <link href="main.css" rel="stylesheet" type="text/css">
+            <link rel="stylesheet" href="css/bootstrap4.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="css/style.css">
 
 
 
-</head>
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<div class="container-fluid bg-dark header-top d-none d-md-block">
-  <div class="container">
-    <div class="row text-light pt-2 pb-2">
-      <div class="col-md-5"><i class="fa fa-envelope-o" aria-hidden="true"></i> l.heindl20333@gmail.com</div>
-      <div class="col-md-3">
+            <!-- Bootstrap CSS -->
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-      </div>
+            <title>Shop</title>
 
-      <div class="col-md-2"> <i class="fa fa-user-o" aria-hidden="true"></i> <button href="#" >Account</button> </div>
-      <div class="col-md-2"> <i class="fa fa-cart-plus" aria-hidden="true"></i>My Cart - $ 0.00</div>
-    </div>
-  </div>
-</div>
+            <style>
+                header {
+                    margin: 80px;
+                    padding: 50px 0 50px 0;
+                }
 
+                .bg-black{ background-color: rgba(14,14,14,1.00)}
+
+                footer {
+                    border-top: 1px;
+                    text-align: left;
+                    padding: 20px;
+                    background-color: rgb(54, 54, 54);
+                }
+
+
+
+                .column-layout {
+                    max-width: 1300px;
+                    margin: 40px auto 50px auto;
+                    line-height: 1.65;
+                    padding: 100px 50px;
+                    display: flex;
+                }
+
+                .main-column {
+                    flex: 1;
+                }
+
+                .sidebar {
+                    margin: 25px;
+                    flex: 1;
+                }
+
+                .sidebar2 {
+                    flex: 1;
+                }
+
+                html {
+                    background-color: rgb(255, 255, 255);
+                    font-family: sans-serif;
+                }
+
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                input {
+                    box-sizing: border-box;
+                    width: 50%;
+                    padding: .25rem;
+                    font-size: 1rem;
+                    border: 1px solid #dddddd;
+                    border-radius: 5px;
+                }
+
+                button {
+                    
+                    background-color: #6BC5FF;
+                    color: white;
+                    font-weight: 100;
+                    font-size: 1rem;
+                    border: none;
+                    transition: background-color 0.2s ease;
+                }
+
+                button:hover {
+                    background-color: #569DCC;
+                }
+
+                .card {
+                    max-width: 50vw;
+                    min-width: 360px;
+                    margin: 5rem auto;
+                    padding: 2rem;
+                    background-color: white;
+                    border-radius: 5px;
+                    text-align: center;
+                }
+
+                .headline {
+                    margin-bottom: 2rem;
+                    font-size: 2rem;
+                    font-weight: 100;
+                }
+
+                .error {
+                    font-size: 1rem;
+                    font-weight: bold;
+                } 
+        </style>
+
+    </head>
 <body>
-  <div class="container">
-    <div class="header">
-
-      <img src="images/thrasherlogo.jpg" class="img-fluid">
+    <% include navbar %>
+    
+    <div class="container">
+        <div class="header">
+            <img src="/thrasherlogo.jpg" class="img-fluid">
+        </div>
     </div>
   </div>
   </div>
-  </div>
 
-  <% include nav %>
 
   <div class="column-layout">
     <div class="main-column">

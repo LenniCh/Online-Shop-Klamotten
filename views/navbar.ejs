@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Navbar</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="main.css" rel="stylesheet" type="text/css">
+        
+    </head>
+    <body>
+
+
+        <div class="topnav" id="navbar">
+            <!-- Dropdown-Menü (on hover) -->
+            <div class="dropdown">
+                <button class="dropbtn">Kategorien
+                    <!-- <i class="fa fa-caret-down"></i> -->
+                </button>
+                <div class="dropdown-content">
+                    <a href="/shirts">Alle T-Shirts</a>
+                    <a href="/pullis">Alle Pullover</a>
+                    <a href="/jacken">Alle Jacken</a>
+                    <a href="/hosen">Alle Hosen</a>
+                    <a href="/schuhe">Alle Schuhe</a>
+                    <a href="/accessoires">Alle Accessoires</a>
+                </div>
+            </div>
+            <div class="topnav-right">
+                <a href="/" class="active">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+                <!-- login_register in Button ändern -->
+                <a href="/login">Login/ Register</a>
+                <div class="search-container">
+                    <form action="/action_page.php">
+                        <input type="text" placeholder="Search.." name="search">
+                        <button class="searchButton" type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </form>
+                </div>
+                <a href="javascript:void(0);" class="icon" onclick="responsiveFunction()">
+            </div>
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <script>
+
+            /* Toggle between adding and removing the "responsive" class
+               to topnav when the user clicks on the icon */
+            function responsiveFunction() {
+                var x = document.getElementById("navbar");
+                if (x.className === "topnav") {
+                    x.className += "responsive";
+                } else {
+                    x.className = "topnav";
+                }
+            }
+
+            /* When the user scrolls the page, execute scrollFunction */
+            window.onscroll = function() {scrollFunction()};
+
+            /* Get the navbar */
+            var navbar = document.getElementById("navbar");
+
+            /* Get the offset position of the navbar */
+            var sticky = navbar.offsetTop;
+
+            /* Add the sticky class to the navbar when you reach
+               its scroll position.
+               Remove when you leave the scroll position */
+            function scrollFunction() {
+                if (window.pageYOffset >= sticky) {
+                    navbar.classList.add("sticky")
+                } else {
+                    navbar.classList.remove("sticky");
+                }
+            }
+
+        </script>
+        <!--
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Projekt</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">Page 1</a></li>
+                        <li><a href="#">Page 2</a></li>
+                        <li><a href="#">Page 3</a></li>
+                    </ul>
+                </div>
+            </nav>
+        -->
+        </body>
+        </html>

@@ -1,54 +1,100 @@
 <!DOCTYPE html>
 <html>
+    <head>
 
-<head>
+        <link href="main.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/bootstrap4.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/style.css">
 
-    <link href="main.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="css/bootstrap4.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="stylings/main.css">
 
-    <link rel="stylesheet" type="text/css" href="stylings/main.css">
+        <style>
 
+            .card {
+                max-width: 50vw;
+                min-width: 360px;
+                margin: 5rem auto;
+                padding: 2rem;
+                background-color: white;
+                border-radius: 5px;
+                text-align: center;
+            }
 
-    <title>Login</title>
-    <link href="main.css" rel="stylesheet" type="text/css">
-</head>
+            .input {
+                box-sizing: border-box;
+                width: 50%;
+                padding: .25rem;
+                font-size: 1rem;
+                border: 1px solid #dddddd;
+                border-radius: 5px;
+            }
 
-<body>
+            .button {
+                
+                background-color: #6BC5FF;
+                color: white;
+                font-weight: 100;
+                font-size: 1rem;
+                border: none;
+                padding: 6px 32px;
+                transition: background-color 0.2s ease;
+            }
 
-    <% include nav %>
+            .button:hover {
+                background-color: #569DCC;
+            }
 
-    <div class="card">
-        <div class="headline">Login</div>
+            .signupText {
+                text-align: center;
+                font-size: 12px;
+            }
 
-        <% if (error) { %>
-        <div class="error">Nutzername oder Passwort falsch.</div>
-        <% } %>
+            .error {
+                font-size: 1rem;
+                font-weight: bold;
+            } 
 
-        <form action="/login" method="POST">
-            <input type="text" name="username" placeholder="Benutzername" required>
+        </style>
 
-            <input type="password" name="password" placeholder="Passwort" required>
+        <title>Login</title>
+        <link href="main.css" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+
+        <div class="card">
+            <div class="headline">Login</div>
+
+            <% if (error) { %>
+            <div class="error">Nutzername oder Passwort falsch.</div>
+            <% } %>
+
+            <form action="/login" method="POST">
+                <input type="text" name="username" placeholder="Benutzername" required>
+                <br>
+                <input type="password" name="password" placeholder="Passwort" required>
+                <br><br>
+                <button type="submit">Login</button>
+            </form>
             <br>
-            <button type="submit">Login</button>
-        </form>
-    </div>
+            <p class="signupText">Noch keinen Account? Werde selbst Anbieter: <a href="/register">Registrieren</a></p>
+        </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
-        integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
-        crossorigin="anonymous"></script>
-    <script src="bootstrap-input-spinner.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
+            integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+            crossorigin="anonymous"></script>
+        <script src="bootstrap-input-spinner.js"></script>
 
-</body>
+    </body>
 
 </html>
