@@ -21,10 +21,13 @@ VALUES (
     "Hoodie", "Pullover", 1, 1, 1, "grau", 35.99, "Thrasher", "thrasherhoodie.jpg"
 );
 
+create table users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL,
+    password TEXT NOT NULL,
+    brand TEXT NOT NULL,
+    banner TEXT NOT NULL);
 
 
-db.each('SELECT * FROM produkte', (err, row) => {
-	const produktID = row.produktID;     
-	const name = row.name;    
-	const preis = row.preis; 
-});
+INSERT INTO users(username, password, brand, banner) 
+ VALUES("ELEMENT","1234", "ELEMENT","elementBanner.png");

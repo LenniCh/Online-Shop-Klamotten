@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+
+            <link href="main.css" rel="stylesheet" type="text/css">
+            <link rel="stylesheet" href="css/bootstrap4.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="css/style.css">
+
+
+
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+            <!-- Bootstrap CSS -->
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+            <title>Shop</title>
+
+            <style>
+                header {
+                    margin: 80px;
+                    padding: 50px 0 50px 0;
+                }
+
+                .bg-black{ background-color: rgba(14,14,14,1.00)}
+
+                footer {
+                    border-top: 1px;
+                    text-align: left;
+                    padding: 20px;
+                    background-color: rgb(54, 54, 54);
+                }
+
+
+
+                .column-layout {
+                    max-width: 1300px;
+                    margin: 40px auto 50px auto;
+                    line-height: 1.65;
+                    padding: 100px 50px;
+                    display: flex;
+                }
+
+                .main-column {
+                    flex: 1;
+                }
+
+                .sidebar {
+                    margin: 25px;
+                    flex: 1;
+                }
+
+                .sidebar2 {
+                    flex: 1;
+                }
+
+                html {
+                    background-color: rgb(255, 255, 255);
+                    font-family: sans-serif;
+                }
+
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                input {
+                    box-sizing: border-box;
+                    width: 50%;
+                    padding: .25rem;
+                    font-size: 1rem;
+                    border: 1px solid #dddddd;
+                    border-radius: 5px;
+                }
+
+                button {
+                    
+                    background-color: #6BC5FF;
+                    color: white;
+                    font-weight: 100;
+                    font-size: 1rem;
+                    border: none;
+                    transition: background-color 0.2s ease;
+                }
+
+                button:hover {
+                    background-color: #569DCC;
+                }
+
+                .card {
+                    max-width: 50vw;
+                    min-width: 360px;
+                    margin: 5rem auto;
+                    padding: 2rem;
+                    background-color: white;
+                    border-radius: 5px;
+                    text-align: center;
+                }
+
+                .headline {
+                    margin-bottom: 2rem;
+                    font-size: 2rem;
+                    font-weight: 100;
+                }
+
+                .error {
+                    font-size: 1rem;
+                    font-weight: bold;
+                } 
+        </style>
+
+    </head>
+<body>
+    <% include navbar %>
+    
+    <div class="container">
+        <div class="header">
+            <img src="/thrasherlogo.jpg" class="img-fluid">
+        </div>
+    </div>
+  </div>
+  </div>
+
+
+  <div class="column-layout">
+    <div class="main-column">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-14 col-xs-6">
+            <img src="images/thrasherhoodie.jpg" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar">
+      <h3>THRASHER SKATE MAG HOODIE</h3>
+      <br>
+      <br>
+      <p>- Black print</p>
+      <p>- Grey</p>
+      <p>- 100% Cotton</p>
+    </div>
+    <div class="Bestellung">
+      <div class="jumbotron">
+        <div class="sidebar2">
+          <form action="submit">
+
+            <h3>74,95 €</h3>
+            <br>
+            <p>Size</p>
+            <div class="btn-group" data-toggle="buttons">
+
+              <label class="btn btn-default active">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked>S
+              </label>
+
+              <label class="btn btn-default">
+                <input type="radio" name="options" id="option2" autocomplete="off">M
+              </label>
+
+              <label class="btn btn-default">
+                <input type="radio" name="options" id="option3" autocomplete="off">L
+              </label>
+
+              <label class="btn btn-default">
+                <input class="text-align-centre" type="radio" name="options" id="option4" autocomplete="off">XL
+              </label>
+              <br>
+            </div>
+            <br>
+            <br>
+            <p>Unit/s</p>
+            <input data-suffix="°C" value="0" min="0" max="40" type="number" />
+        </div>
+        </form>
+        
+
+        <br>
+        <br>
+        <br>
+        <button class="btn-default btn-block">In den Warenkorb</button>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <footer>
+    <div class="wrap">
+      <div class="footer_left">
+        <p class="text-left">Thrasher Magazine</p>
+      </div>
+
+    </div>
+
+
+
+  </footer>
+
+  </nav>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
+    integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+    crossorigin="anonymous"></script>
+  <script src="bootstrap-input-spinner.js"></script>
+
+</body>
+
+
+</html>
