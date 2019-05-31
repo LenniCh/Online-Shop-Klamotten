@@ -29,8 +29,28 @@
                 <a href="/" class="active">
                     <span class="glyphicon glyphicon-home"></span>
                 </a>
-                <!-- login_register in Button ändern -->
-                <a href="/login">Login/ Register</a>
+                <!-- Sessionvariable bestimmt welche Elemente angezeigt werden -->
+                <% 
+                    if (!sessionVariable) {%>
+                    <a href="/login">Login/ Register</a>
+                <%} else {%>
+                    <a href="/account">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </a>
+                    <!-- Einstellungen in Dropdown ändern -->
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <span class="glyphicon glyphicon-cog"></span>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="/orders">Bestellungen</a>
+                            <a href="/settings">Einstellungen</a>
+                            <form action="/logout" method="POST">
+                                <button type="submit" class="logoutbtn">Logout</button>
+                            </form>
+                        </div>
+                    </div>
+                <%}%>
                 <div class="search-container">
                     <form action="/action_page.php">
                         <input type="text" placeholder="Search.." name="search">

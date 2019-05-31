@@ -44,6 +44,8 @@
             </div>
         </div>
         
-        <% include addproduct %>
+        <% if (sessionVariable) {%>
+            <% include addproduct %>
+        <%}%>
     </body>
 </html>

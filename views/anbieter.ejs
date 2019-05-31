@@ -11,8 +11,9 @@
 
     </head>
     <body>
-        <% include sessionnavbar %>
 
+        <% include navbar %>
+        <br><br>
         <div class="jumbotron text-center">
                 <br><br><h1>Anbieter-/ Markenbanner</h1><br><br>
         </div>
@@ -40,7 +41,7 @@
                 </a>
             </div>
             <div class="col-sm-4">
-                <a href="/pullis" class="img-responsive">
+                <a href="/pullover" class="img-responsive">
                     <div class="container4Kat">
                         <img src="pullover_stack.jpg" alt="Pullis" class="categoryimage">
                         <div class="middle">
@@ -98,6 +99,8 @@
                 </div>
         </div>
         
-        <% include addproduct %>
+        <% if (sessionVariable) {%>
+            <% include addproduct %>
+        <%}%>
     </body>
 </html>
