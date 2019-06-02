@@ -7,62 +7,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link href="main.css" rel="stylesheet" type="text/css">
 
-  <style>
-      .container4Kat {
-            position: relative;
-            width: 100%;
-        }
-
-        .image {
-            opacity: 1;
-            display: block;
-            width: 100%;
-            height: auto;
-            transition: .5s ease;
-            backface-visibility: hidden;
-            padding: 2px;
-        }
-
-        .middle {
-            transition: .5s ease;
-            opacity: 1;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            text-align: center;
-        }
-
-        .container4Kat:hover .image {
-            opacity: 0.3;
-        }
-
-        .container4Kat:hover .middle {
-            opacity: 1;
-        }
-
-        .categorytext {
-            color: white;
-            font-size: 40px;
-            padding: 16px 16px;
-        }
-
-        .categorytext:hover {
-            color: dimgray;
-        }
-
-        .row {
-            padding: 16px 38px;
-        }
-
-  </style>
 </head>
 <body style="background-color: lightgrey;">
     <% include navbar %>
 
-    <div class="container"> 
+    <br>
+    <div class="container">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -100,76 +52,80 @@
         </div>
     </div>
 
-      <div class="container">
-            <div class="page-header text-center">
-                <h1>Kategorien</h1>      
-            </div>
+    <div class="container">
+        <div class="page-header text-center">
+            <h1>Kategorien</h1>      
         </div>
-      
-      <div class="row">
-            <div class="col-sm-4">
-                <a href="/shirts" class="img-responsive" alt="T-Shirts" method="GET">
-                    <div class="container4Kat">
-                        <img src="tshirt_stack.jpg" alt="T-Shirts" class="image">
-                        <div class="middle">
-                            <div class="categorytext">T-Shirts</div>
-                        </div>
+    </div>
+    
+    <div class="row categoryRow">
+        <div class="col-sm-4">
+            <a href="/shirts" class="img-responsive" alt="T-Shirts" method="GET">
+                <div class="container4Kat">
+                    <img src="tshirt_stack.jpg" alt="T-Shirts" class="categoryimage">
+                    <div class="middle">
+                        <div class="categorytext">T-Shirts</div>
                     </div>
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="/pullis" class="img-responsive">
-                    <div class="container4Kat">
-                        <img src="pullover_stack.jpg" alt="Pullis" class="image">
-                        <div class="middle">
-                            <div class="categorytext">Pullover</div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="/jacken" class="img-responsive">
-                    <div class="container4Kat">
-                        <img src="jacken.jpg" alt="Jacken" class="image">
-                        <div class="middle">
-                            <div class="categorytext">Jacken</div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                </div>
+            </a>
         </div>
-        <div class="row">
-            <div class="col-sm-4">
-                <a href="/hosen" class="img-responsive">
-                    <div class="container4Kat">
-                        <img src="hosen.jpg" alt="Hosen" class="image">
-                        <div class="middle">
-                            <div class="categorytext">Hosen</div>
-                        </div>
+        <div class="col-sm-4">
+            <a href="/pullis" class="img-responsive">
+                <div class="container4Kat">
+                    <img src="pullover_stack.jpg" alt="Pullis" class="categoryimage">
+                    <div class="middle">
+                        <div class="categorytext">Pullover</div>
                     </div>
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="/schuhe" class="img-responsive">
-                    <div class="container4Kat">
-                        <img src="schuhe.jpg" alt="T-Shirts" class="image">
-                        <div class="middle">
-                            <div class="categorytext">Schuhe</div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="/accessoires" class="img-responsive">
-                    <div class="container4Kat">
-                        <img src="accessoires.jpg" alt="T-Shirts" class="image">
-                        <div class="middle">
-                            <div class="categorytext">Accessoires</div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                </div>
+            </a>
         </div>
+        <div class="col-sm-4">
+            <a href="/jacken" class="img-responsive">
+                <div class="container4Kat">
+                    <img src="jacken.jpg" alt="Jacken" class="categoryimage">
+                    <div class="middle">
+                        <div class="categorytext">Jacken</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="row categoryRow">
+        <div class="col-sm-4">
+            <a href="/hosen" class="img-responsive">
+                <div class="container4Kat">
+                    <img src="hosen.jpg" alt="Hosen" class="categoryimage">
+                    <div class="middle">
+                        <div class="categorytext">Hosen</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-4">
+            <a href="/schuhe" class="img-responsive">
+                <div class="container4Kat">
+                    <img src="schuhe.jpg" alt="T-Shirts" class="categoryimage">
+                    <div class="middle">
+                        <div class="categorytext">Schuhe</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-4">
+            <a href="/accessoires" class="img-responsive">
+                <div class="container4Kat">
+                    <img src="accessoires.jpg" alt="T-Shirts" class="categoryimage">
+                    <div class="middle">
+                        <div class="categorytext">Accessoires</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <% if (sessionVariable) {%>
+        <% include addproduct %>
+    <%}%>
     
 </body>
 </html>

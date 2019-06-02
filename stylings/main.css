@@ -96,7 +96,12 @@
         opacity: 1;
     }
 
-/* Stylings für navbar.ejs & sessionnavbar.ejs */
+
+
+
+
+/* Stylings für navbar.ejs */
+
 /* << ---- impliment RESPONSIVE NAVBAR ---- >> */
 
     /* Add a black background color to the top navigation */
@@ -261,6 +266,15 @@
         background-color: #ddd;
     }
 
+    .logoutbtn {
+        width: 100%;
+        text-align: left;
+        color: white;
+        background-color: #333;
+        border: none;
+        padding: 12px 16px;
+    }
+
     /* Show the dropdown menu on hover */
     .dropdown:hover .dropdown-content {
         display: block;
@@ -287,10 +301,14 @@
         border-radius: 4px;
     }
 
+
+
+
+
 /* Stylings für anbieter.ejs */
+
     .container4Kat {
         position: relative;
-        width: 100%;
     }
 
     .categoryimage {
@@ -314,7 +332,7 @@
         text-align: center;
     }
 
-    .container4Kat:hover .image {
+    .container4Kat:hover .categoryimage {
         opacity: 0.3;
     }
 
@@ -333,7 +351,7 @@
     }
 
     .categoryRow {
-    padding: 16px 38px;
+        padding: 16px 38px;
     }   
 
     .eigeneWorteContent {
@@ -343,17 +361,12 @@
     }
 
     .eigeneWorte {
-        padding: 16px 38px;
+        padding-top: 16px;
+        padding-left: 38px;
     }
 
 /* Styling für Back-Button zur Anbieter(Kategorieübersichts-)-Seite (von Kategorieseite aus)*/
     .back2Category {
         border-color: cornflowerblue ;
         color: cornflowerblue;
-    }
-/*      Lennart main.css        */
-    .col-sm-3{
-        background-color: lightgrey; 
-        border-style: solid; 
-        margin: 10px;
     }
