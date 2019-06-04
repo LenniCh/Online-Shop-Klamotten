@@ -3,6 +3,8 @@ const app = express()
 const bodyParser= require('body-parser')
 const fs = require('fs');
 app.use(bodyParser.urlencoded({extended: true}))
+const bcrypt = require('bcrypt');
+const saltRounds = 8;
 
 // initialize ejs template engine
 app.engine('.ejs', require('ejs').__express);
@@ -74,7 +76,7 @@ app.post('/login', (request, response) => {
 	let username = request.body.username;
 	let password = request.body.password;
 
-	database.get(`SELECT * FROM users WHERE username='${username}'`, function(error, now) {
+	db.get(`SELECT * FROM users WHERE username='${username}'`, function(error, now) {
 		if(error) {
 			console.log(error);
 			response.redirect('/login');
@@ -126,6 +128,8 @@ app.post('/register', (request, response) => {
 	let username = request.body.username;
 	let password = request.body.password;
 	let passwordConfirm = request.body.passwordConfirm;
+	let brand = request.body.Markenname;
+	let banner = request.body.banner;
 
 	if (password != passwordConfirm) {
 		response.render('register', {
@@ -134,7 +138,7 @@ app.post('/register', (request, response) => {
 		return;
 	}
 
-	database.get(`SELECT * FROM users WHERE username='${username}'`, function(error, now) {
+	db.get(`SELECT * FROM users WHERE username='${username}'`, function(error, row) {
 		if (error) {
 			console.log(error);
 			response.redirect('/register');
@@ -149,7 +153,7 @@ app.post('/register', (request, response) => {
 					return;
 				}
 
-				database.run(`INSERT INTO users (username, password) VALUES ('${username}', '${hash}')`, (error) => {
+				db.run(`INSERT INTO users (username, password, brand, banner) VALUES ('${username}', '${hash}','${brand}','${banner}')`, (error) => {
 					if (error) {
 						console.log(error);
 						response.redirect('/register');
@@ -168,7 +172,6 @@ app.post('/register', (request, response) => {
 		}
 	});
 });
-
 // Versuchsfunktion zum checken ob Session aktiv
 /* function sessionCheck(request, response) {
 	if(!request.session.authenticated) {
@@ -193,6 +196,7 @@ app.post("/addProduct", function(request, response){
 	const preis = request.body.preis;
 	const anbieter = "ich";
 	const bild = request.body.bildlink;
+	const beschreibung = request.body.beschreibung;
 	console.log(name);
 	console.log(kategorie);
 	console.log(s);
@@ -202,6 +206,7 @@ app.post("/addProduct", function(request, response){
 	console.log(preis);
 	console.log(anbieter);
 	console.log(bild);
+	console.log(beschreibung);
 
 	// Datensatz in Tabelle produkte einfügen
 	const sql = `INSERT INTO produkte (name, kategorie, s, m, l, farbe, preis, anbieter, bild) 
@@ -292,6 +297,18 @@ app.get("/element", function(req,res){
 	res.render('element',{'produkte':rows || []});
     });
 });
+
+app.get("/elementShirt", function(req,res){
+	let name ="Shirt"
+	db.all(`SELECT * FROM produkte WHERE name='${shirt}'`, (err, rows) => {
+		if (err){
+			console.log(err.message);
+		}
+	res.render('element',{'produkte':rows || []});
+    });
+});
+
+
 
 
 
