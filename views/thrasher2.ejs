@@ -61,31 +61,16 @@
     
       <div class="container-fluid" style="background-color:lightgrey">
             <div class="row" style="background-color:lightgrey">
-                <div class="col-sm-3">
-                  <a href="/pullover" class="thumbnail">
-                    <img src="/thrasherhoodie.jpg" alt="Pullis">
-                    <p>Produktname <br>Preis€</p></a>
-                </div>
-                <div class="col-sm-3">
-                  <a href="/hosen" class="thumbnail" >
-                    <img src="/thrasherBeanie.jpg" alt="Hosen">
-                    <p>Produktname <br>Preis€</p></a>
-                </div>
-                <div class="col-sm-3">
-                  <a href="/Schuhe" class="thumbnail">
-                    <img src="/thrasherShirt.jpg" alt="Schuhe">
-                    <p>Produktname <br>Preis€</p></a>
-                </div>
-                
-             </div>
-             <div class="row">
+                <%for (let i = 0; i<produkte.length; i++){%>
                   <div class="col-sm-3">
                       <a href="/pullover" class="thumbnail">
-                      <img src="/thrasherhoodie2.jpg" alt="Pullis">
-                      <p>Produktname <br>Preis€</p></a>
-                  </div>
-
-              </div>
+                        <img src="<%=produkte[i].bild%>" alt="Pullis">
+                        <p><%=produkte[i].name%> <br><%=produkte[i].preis%>€</p>
+                      </a>
+                        
+                  </div> 
+                <%}%>
+                
             </div> 
 </body>
 </html>

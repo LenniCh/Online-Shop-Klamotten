@@ -1,26 +1,22 @@
 const express = require('express');
-const app = express();
-
-const bcrypt = require('bcrypt');
-const saltRounds = 8;
-
+const app = express()
+const bodyParser= require('body-parser')
 const fs = require('fs');
-
-const bodyParser= require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}))
 
 // initialize ejs template engine
 app.engine('.ejs', require('ejs').__express);
 app.set('view engine', 'ejs');
 
-// initialize SQLite with database 'produkte.db'
+// initialize SQLite with database 'users.db'
 const sqlite3 = require('sqlite3').verbose();
+
 let db = new sqlite3.Database('produkte.db', (err) => {
-	if(err) {
-		console.error(err.message);
+    if (err) {
+		console.error(err.message);   
 	}
-	console.log('Connected to the produkte database.');
-});
+	 console.log('Connected to the produkte database.'); 
+}); 
 
 // Webserver starten http://localhost:3000
 app.listen(3000, function(){
@@ -30,7 +26,7 @@ app.listen(3000, function(){
 app.use(express.static(__dirname + '/images'));
 app.use(express.static(__dirname + '/stylings'));
 
-// Session initilialisieren
+
 const session = require('express-session');
 app.use(session({
 	secret: 'example',
@@ -41,7 +37,6 @@ app.use(session({
 app.get('/', (request, response) => {
 	let authenticated = request.session.authenticated;
 	let username = request.session.username;
-	var sessionVariable = request.session.authenticated;
 	
 	let greeting;
 	
@@ -50,17 +45,21 @@ app.get('/', (request, response) => {
 	} else {
 		greeting = `Willkommen, ${username}!`;
 	}
+	db.all(`SELECT * FROM users WHERE id > 0`, function(err, rows){
+		if (err){
+			console.log(err.message);
+		}
 
 	response.render('home', {
 		isLoggedIn: authenticated,
 		greeting: greeting,
-		sessionVariable: request.session.authenticated
+		'anbieter':rows || []
 	});
+});
 
 });
 
 app.get('/login', (request, response) => {
-
     if (!request.session.authenticated) {
         response.render('login', {
             error: false
@@ -75,7 +74,7 @@ app.post('/login', (request, response) => {
 	let username = request.body.username;
 	let password = request.body.password;
 
-	db.get(`SELECT * FROM users WHERE username='${username}'`, function(error, row) {
+	database.get(`SELECT * FROM users WHERE username='${username}'`, function(error, now) {
 		if(error) {
 			console.log(error);
 			response.redirect('/login');
@@ -127,8 +126,6 @@ app.post('/register', (request, response) => {
 	let username = request.body.username;
 	let password = request.body.password;
 	let passwordConfirm = request.body.passwordConfirm;
-	let brand = request.body.Markenname;
-	let banner = request.body.banner;
 
 	if (password != passwordConfirm) {
 		response.render('register', {
@@ -137,7 +134,7 @@ app.post('/register', (request, response) => {
 		return;
 	}
 
-	db.get(`SELECT * FROM users WHERE username='${username}'`, function(error, row) {
+	database.get(`SELECT * FROM users WHERE username='${username}'`, function(error, now) {
 		if (error) {
 			console.log(error);
 			response.redirect('/register');
@@ -152,7 +149,7 @@ app.post('/register', (request, response) => {
 					return;
 				}
 
-				db.run(`INSERT INTO users (username, password, brand, banner) VALUES ('${username}', '${hash}','${brand}','${banner}')`, (error) => {
+				database.run(`INSERT INTO users (username, password) VALUES ('${username}', '${hash}')`, (error) => {
 					if (error) {
 						console.log(error);
 						response.redirect('/register');
@@ -174,7 +171,7 @@ app.post('/register', (request, response) => {
 
 // Versuchsfunktion zum checken ob Session aktiv
 /* function sessionCheck(request, response) {
-	if(request.session.authenticated == false) {
+	if(!request.session.authenticated) {
 		response.render('navbar');
 		console.log("render navbar");
 	} else {
@@ -194,7 +191,7 @@ app.post("/addProduct", function(request, response){
 	const l = request.body.l;
 	const farbe = request.body.farbe;
 	const preis = request.body.preis;
-	const anbieter = request.session.username;
+	const anbieter = "ich";
 	const bild = request.body.bildlink;
 	console.log(name);
 	console.log(kategorie);
@@ -217,111 +214,85 @@ app.post("/addProduct", function(request, response){
 });
 
 app.get('/anbieter', (request, response) => {
-	var sessionVariable = request.session.authenticated;
-	response.render('anbieter', {
-		sessionVariable: request.session.authenticated
-	});
-});
-
-app.get('/navbar', (request, response) => {
-	response.render('navbar');
+	response.render('anbieter');
 });
 
 app.get('/artikel', (request, response) => {
-	var sessionVariable = request.session.authenticated;
-	response.render('artikel', {
-		sessionVariable: request.session.authenticated
+	response.render('artikel');
+});
+
+app.get("/shirts", function(req,res){
+	let shirts = "T-Shirt"
+	db.all(`SELECT * FROM produkte WHERE kategorie='${shirts}'`,function(err,rows){
+		if (err){
+			console.log(err.message);
+		}
+		res.render('shirts',{'produkte' :rows || []});
 	});
 });
 
-app.get('/shirts', (request, response)=>{
-	var sessionVariable = request.session.authenticated;
-	response.render('shirts', {
-		sessionVariable: request.session.authenticated
-	});
-});
-
-app.get('/pullis', (request, response)=>{
-	var sessionVariable = request.session.authenticated;
-	response.render('pullis', {
-		sessionVariable: request.session.authenticated
+app.get("/pullis", function(req,res){
+	let pullover = "Pullover"
+	db.all(`SELECT * FROM produkte WHERE kategorie='${pullover}'`,function(err,rows){
+		if (err){
+			console.log(err.message);
+		}
+		res.render('pullis',{'produkte' :rows || []});
 	});
 });
 
 app.get('/jacken', (request, response)=>{
-	var sessionVariable = request.session.authenticated;
-	response.render('jacken', {
-		sessionVariable: request.session.authenticated
-	});
+	response.render('jacken');
 });
 
 app.get('/hosen', (request, response)=>{
-	var sessionVariable = request.session.authenticated;
-	response.render('hosen', {
-		sessionVariable: request.session.authenticated
-	});
+	response.render('hosen');
 });
 
 app.get('/schuhe', (request, response)=>{
-	var sessionVariable = request.session.authenticated;
-	response.render('schuhe', {
-		sessionVariable: request.session.authenticated
-	});
+	response.render('schuhe');
 });
 
 app.get('/accessoires', (request, response)=>{
-	var sessionVariable = request.session.authenticated;
-	response.render('accessoires', {
-		sessionVariable: request.session.authenticated
-	});
+	response.render('accessoires');
 });
 
-app.get("/thrasher", function(request,response){
-	var sessionVariable = request.session.authenticated;
-	response.render('thrasher', {
-		sessionVariable: request.session.authenticated
-	});
-});
-
-app.get("/thrasher2", function(request,response){
-	var sessionVariable = request.session.authenticated;
-	let thrasher ="Thrasher"
-	db.all(`SELECT * FROM produkte WHERE anbieter='${thrasher}'`, function(err, rows){
-		if (err){
-			console.log(err.message);
-		}
-		response.render('thrasher2', {
-			'produkte':rows || [],
-			sessionVariable: request.session.authenticated
-		});
-		
-	});
-});
-
-app.get("/bs", function(request,response){
-	var sessionVariable = request.session.authenticated;
+app.get("/bs", function(req,res){
 	let element ="ELEMENT"
 	db.all(`SELECT * FROM users WHERE brand='${element}'`, function(err, rows){
 		if (err){
 			console.log(err.message);
 		}
-		response.render('bs', {
-			'anbieter':rows || [],
-			sessionVariable: request.session.authenticated
-		});
+		res.render('bs',{'anbieter':rows || []});
 		
 	});
 });
 
-app.get("/element", function(request,response){
-	var sessionVariable = request.session.authenticated;
-	let element ="ELEMENT"
-	db.all(`SELECT * FROM users WHERE username='${element}'`, (err, rows) => {
-		const banner = rows.banner
-		const brand = rows.brand
 
-	});
-	response.render('element', {
-		sessionVariable: request.session.authenticated
+app.get("/thrasher", function(req,res){
+	res.render('thrasher');
+});
+app.get("/thrasher2", function(req,res){
+	let thrasher ="Thrasher"
+	db.all(`SELECT * FROM produkte WHERE anbieter='${thrasher}'`, function(err, rows){
+		if (err){
+			console.log(err.message);
+		}
+		res.render('thrasher2',{'produkte':rows || []});
+		
 	});
 });
+
+app.get("/element", function(req,res){
+	let element ="ELEMENT"
+	db.all(`SELECT * FROM produkte WHERE anbieter='${element}'`, (err, rows) => {
+		if (err){
+			console.log(err.message);
+		}
+	res.render('element',{'produkte':rows || []});
+    });
+});
+
+
+
+

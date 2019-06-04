@@ -2,19 +2,57 @@
 <html>
 
 <head>
-
+    <title>Registration</title>
     <link href="main.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link href="main.css" rel="stylesheet" type="text/css">
 
-
-
-    <title>Registration</title>
-    <link href="main.css" rel="stylesheet" type="text/css">
-
     <style>
+        html {
+            background-color: #6BC5FF;
+            font-family: sans-serif;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input {
+            box-sizing: border-box;
+            width: 50%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 50%;
+            margin: 1rem 0;
+            padding: 1rem;
+            background-color: #6BC5FF;
+            color: white;
+            font-weight: 100;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #569DCC;
+        }
+
         .card {
             max-width: 50vw;
             min-width: 360px;
@@ -25,33 +63,10 @@
             text-align: center;
         }
 
-        .input {
-            box-sizing: border-box;
-            width: 50%;
-            padding: .25rem;
-            font-size: 1rem;
-            border: 1px solid #dddddd;
-            border-radius: 5px;
-        }
-
-        .button {
-
-            background-color: #6BC5FF;
-            color: white;
+        .headline {
+            margin-bottom: 2rem;
+            font-size: 2rem;
             font-weight: 100;
-            font-size: 1rem;
-            border: none;
-            padding: 6px 32px;
-            transition: background-color 0.2s ease;
-        }
-
-        .button:hover {
-            background-color: #569DCC;
-        }
-
-        .signupText {
-            text-align: center;
-            font-size: 12px;
         }
 
         .error {
@@ -59,11 +74,7 @@
             font-weight: bold;
         }
     </style>
-</head>
 
-<body>
-
-    
 
     <div class="card">
         <div class="headline">Registrierung</div>
@@ -75,25 +86,24 @@
         <form action="/register" method="POST">
             <input type="text" name="username" placeholder="Benutzername" required>
 
-            <input type="text" name="Markenname" placeholder="Markenname" required>
-
-            <input type="text" name="banner" placeholder="Banner" required>
-
-            <input type="text" name="email" placeholder="Email" required>
-
             <input type="password" name="password" placeholder="Passwort" required>
 
             <input type="password" name="passwordConfirm" placeholder="Passwort wiederholen" required>
-            <br>
+
             <button type="submit">Registrieren</button>
         </form>
-
     </div>
 
-
-
-
-
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
+        integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+        crossorigin="anonymous"></script>
+    <script src="bootstrap-input-spinner.js"></script>
 </body>
 
 </html>
