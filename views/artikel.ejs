@@ -1,157 +1,195 @@
 <!doctype html>
 <html lang="en">
 
-<head>
+    <head>
 
-  <link href="main.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <link href="main.css" rel="stylesheet" type="text/css">
+            <link href="main.css" rel="stylesheet" type="text/css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Shop</title>
+            <!-- Bootstrap CSS -->
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <style>
-    .header1 {
-      margin: 10px;
-      padding: 50px 0 50px 0;
-    }
+            <title>Shop</title>
 
-    footer {
-      border-top: 1px;
-      text-align: left;
-      padding: 20px;
-      background-color: rgb(54, 54, 54);
-    }
+            <style>
+                header {
+                    margin: 80px;
+                    padding: 50px 0 50px 0;
+                }
 
-    .column-layout1 {
-      max-width: 1300px;
-      margin: 40px auto 50px auto;
-      line-height: 1.65;
-      padding: 100px 50px;
-      display: flex;
-    }
+                .bg-black{ background-color: rgba(14,14,14,1.00)}
 
-    .main-column1 {
-      flex: 1;
-    }
+                footer {
+                    border-top: 1px;
+                    text-align: left;
+                    padding: 20px;
+                    background-color: rgb(54, 54, 54);
+                }
 
-    .sidebar {
-      margin: 25px;
-      flex: 1;
-    }
 
-    .sidebar2 {
-      flex: 1;
-    }
 
-    html {
-      background-color: rgb(255, 255, 255);
-      font-family: sans-serif;
-    }
+                .column-layout {
+                    max-width: 1300px;
+                    margin: 40px auto 50px auto;
+                    line-height: 1.65;
+                    padding: 100px 50px;
+                    display: flex;
+                }
 
-    .button:hover {
-      background-color: #569DCC;
-    }
+                .main-column {
+                    flex: 1;
+                }
 
-    .headline1 {
-      margin-bottom: 2rem;
-      font-size: 2rem;
-      font-weight: 100;
-    }
+                .sidebar {
+                    margin: 25px;
+                    flex: 1;
+                }
 
-    .error {
-      font-size: 1rem;
-      font-weight: bold;
-    }
-  </style>
+                .sidebar2 {
+                    flex: 1;
+                }
 
-</head>
+                html {
+                    background-color: rgb(255, 255, 255);
+                    font-family: sans-serif;
+                }
 
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                input {
+                    box-sizing: border-box;
+                    width: 50%;
+                    padding: .25rem;
+                    font-size: 1rem;
+                    border: 1px solid #dddddd;
+                    border-radius: 5px;
+                }
+
+                button {
+                    
+                    background-color: #6BC5FF;
+                    color: white;
+                    font-weight: 100;
+                    font-size: 1rem;
+                    border: none;
+                    transition: background-color 0.2s ease;
+                }
+
+                button:hover {
+                    background-color: #569DCC;
+                }
+
+                .card {
+                    max-width: 50vw;
+                    min-width: 360px;
+                    margin: 5rem auto;
+                    padding: 2rem;
+                    background-color: white;
+                    border-radius: 5px;
+                    text-align: center;
+                }
+
+                .headline {
+                    margin-bottom: 2rem;
+                    font-size: 2rem;
+                    font-weight: 100;
+                }
+
+                .error {
+                    font-size: 1rem;
+                    font-weight: bold;
+                } 
+        </style>
+
+    </head>
 <body>
-  <% include navbar %>
-
-
-  <div class="container">
-    <div class="header1">
-      <img src="/thrasherlogo.jpg" class="img-fluid">
+    <% include navbar %>
+    
+    <div class="container">
+        <div class="header">
+            <img src="/thrasherlogo.jpg" class="img-fluid">
+        </div>
     </div>
+  </div>
   </div>
 
 
-  <div class="row categoryRow">
-    <div class="col-sm-4">
+  <div class="column-layout">
+    <div class="main-column">
       <div class="container">
-        <div class="col-md-14 col-xs-6">
-          <img src="thrasherhoodie.jpg" class="img-fluid">
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-4">
-      <h4>THRASHER SKATE MAG HOODIE</h3>
-        <br>
-        <br>
-        <p>- Black print</p>
-        <p>- Grey</p>
-        <p>- 100% Cotton</p>
-    </div>
-
-    <div class="col-sm-4">
-      <div class="Bestellung">
-        <div class="jumbotron">
-          <div class="sidebar2">
-            <form action="submit">
-
-              <h3>74,95 €</h3>
-              <br>
-              <p>Size</p>
-              <div class="btn-group" data-toggle="buttons">
-
-                <label class="btn btn-default active">
-                  <input type="radio" name="options" id="option1" autocomplete="off" checked>S
-                </label>
-
-                <label class="btn btn-default">
-                  <input type="radio" name="options" id="option2" autocomplete="off">M
-                </label>
-
-                <label class="btn btn-default">
-                  <input type="radio" name="options" id="option3" autocomplete="off">L
-                </label>
-
-                <label class="btn btn-default">
-                  <input class="text-align-centre" type="radio" name="options" id="option4" autocomplete="off">XL
-                </label>
-                <br>
-              </div>
-              <br>
-              <br>
-              <p>Unit/s</p>
-              <input data-suffix="°C" value="0" min="0" max="40" type="number" />
+        <div class="row">
+          <div class="col-sm-4">
+            <img src="thrasherhoodie.jpg" class="img-fluid">
           </div>
-          </form>
+        
+    <div class="col-sm-4">
+     <div class="sidebar" style="font-size:2rem">
+      <h3 style="font-size:2.5rem">THRASHER SKATE MAG HOODIE</h3>
+      <br>
+      <br>
+      <p>- Black print</p>
+      <p>- Grey</p>
+      <p>- 100% Cotton</p>
+    </div>
+  </div>
 
+    <div class="col-sm-4">
+    <div class="Bestellung">
+      <div class="jumbotron">
+        <div class="sidebar2">
+          <form action="submit">
 
-          <br>
-          <br>
-          <br>
-          <button class="btn-default btn-block">In den Warenkorb</button>
-          </button>
+            <h3>74,95 €</h3>
+            <br>
+            <p>Size</p>
+            <div class="btn-group btn-group-lg" data-toggle="buttons">
+
+              <label class="btn btn-default active">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked>S
+              </label>
+
+              <label class="btn btn-default">
+                <input type="radio" name="options" id="option2" autocomplete="off">M
+              </label>
+
+              <label class="btn btn-default">
+                <input type="radio" name="options" id="option3" autocomplete="off">L
+              </label>
+              <br>
+            </div>
+            <br>
+            <br>
+            <p>Unit/s</p>
+            <input data-suffix="°C" value="0" min="0" max="40" type="number" />
         </div>
+        </form>
+        
+
+        <br>
+        <br>
+        <br>
+        <button style="font-size:1.7rem" class="btn-lg btn-block">In den Warenkorb</button>
+        </button>
       </div>
     </div>
   </div>
   </div>
+</div>
+</div>
+</div>
 
 
   <footer>
@@ -174,14 +212,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
+    integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+    crossorigin="anonymous"></script>
+  <script src="bootstrap-input-spinner.js"></script>
 
 </body>
-<% if (sessionVariable) {%>
-  <% include addproduct %>
-<%}%>
 
 
 </html>

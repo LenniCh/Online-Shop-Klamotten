@@ -138,6 +138,7 @@
     <div class="col-sm-4">
      <div class="sidebar" style="font-size:2rem">
       <h3 style="font-size:2.5rem"><%=produkte[i].name%></h3>
+      <h4 style="font-size:1.5rem"><%=produkte[i].farbe%></h4>
       <br>
       <br>
      <pre><%=produkte[i].beschreibung%></pre>
@@ -151,6 +152,7 @@
           <form action="submit">
 
             <h3><%=produkte[i].preis%> €</h3>
+            <%}%>
             <br>
             <p>Size</p>
             <div class="btn-group btn-group-lg" data-toggle="buttons">
@@ -165,10 +167,6 @@
 
               <label class="btn btn-default">
                 <input type="radio" name="options" id="option3" autocomplete="off">L
-              </label>
-
-              <label class="btn btn-default">
-                <input class="text-align-centre" type="radio" name="options" id="option4" autocomplete="off">XL
               </label>
               <br>
             </div>

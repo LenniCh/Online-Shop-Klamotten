@@ -14,27 +14,33 @@
 
     </head>
     <body>
-       
-        <% include navbar %>
+            <% include navbar %>
         
-        <div class="jumbotron text-center">
-            <br><br><h1>Anbieter-/ Markenbanner</h1><br><br>
+        <div class="col-sm-12 text-center">
+            <img src="shirtBanner.jpg" class="img-rounded" alt="Shirts" style="width:70%">
         </div>
         <div>
             <a href="/">
                 <button class="back2Category">zurück zu Kategorien</button>
             </a>
         </div>
-        <br>
-        <br>
-        <div class="container">
-            <div class="page-header text-center">
-                <h1>T-Shirts</h1>      
-            </div>
-        </div>
+ 
+        <div class="container-fluid" style="background-color:lightgrey">
+            <div class="row" style="background-color:lightgrey">
+                <%for (let i = 0; i<produkte.length; i++){%>
+                  <div class="col-sm-3">
+                      <a href="/tshirts" class="thumbnail">
+                        <img src="<%=produkte[i].bild%>" alt="Pullis">
+                        <p><%=produkte[i].name%> <br><%=produkte[i].preis%>€ <br> <%=produkte[i].anbieter%></p>
+                      </a>
+                        
+                  </div> 
+                <%}%>
+                
+            </div> 
         
-        <% if (sessionVariable) {%>
-            <% include addproduct %>
-        <%}%>
+            <% if (sessionVariable) {%>
+                <% include addproduct %>
+            <%}%>
     </body>
 </html>
