@@ -11,11 +11,12 @@
         <title>Produkte-Hinzufügen-Button</title>
     
     </head>
+    <body>
         <div class="addProd">
             <div class="dropup">
                 <button class="aPdropbtn" width="100%">+</button>
                 <div class="dropup-content">
-                    <form class="addProdForm" action="/addProduct" method="post">
+                    <form class="addProdForm" action="/addproduct" method="POST">
                         <h3>Produkt hinzufügen</h3><br>
                         Artikelbezeichnung/ Name <br>
                         <input type="text" class="formular textInput" name="name" id="productname"><br><br>
@@ -52,9 +53,12 @@
                         Bild <br>
                         <input type="text" name="bildlink" class="formular textInput" id="image-link"><br>
                         <br>
+                        Artikel-Beschreibung
+                        <textarea rows="3" cols="33" name="beschreibung" style="color:black"></textarea>
                         <button type="submit" class="formular aPSubmit">Hinzufügen</button>
                     </form>
                 </div>
             </div>
         </div>
+    </body>
 </html>

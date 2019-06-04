@@ -50,13 +50,18 @@ app.get('/', (request, response) => {
 	} else {
 		greeting = `Willkommen, ${username}!`;
 	}
+	db.all(`SELECT * FROM users WHERE id > 0`, function(err, rows){
+		if (err){
+			console.log(err.message);
+		}
 
 	response.render('home', {
 		isLoggedIn: authenticated,
 		greeting: greeting,
-		sessionVariable: request.session.authenticated
+		sessionVariable: request.session.authenticated,
+		'anbieter':rows || []
 	});
-
+});
 });
 
 app.get('/login', (request, response) => {
@@ -172,6 +177,41 @@ app.post('/register', (request, response) => {
 	});
 });
 
+/*
+app.post('/addprod', (request, response) => {
+	let name = request.body.name;
+	let kategorie = request.body.kategorie;
+	let s = request.body.s;
+	let m = request.body.m;
+	let l = request.body.l;
+	let farbe = request.body.farbe;
+	let preis = request.body.preis;
+	let anbieter = request.session.username;
+	let bild = request.body.bildlink;
+	let beschreibung = request.body.beschreibung;
+	console.log(name);
+	console.log(kategorie);
+	console.log(s);
+	console.log(m);
+	console.log(l);
+	console.log(farbe);
+	console.log(preis);
+	console.log(anbieter);
+	console.log(bild);
+	console.log(beschreibung);
+
+	db.run(`INSERT INTO produkte (name, kategorie, s, m, l, farbe, preis, anbieter, bild, beschreibung) VALUES ('${name}', '${kategorie}', '${s}', '${m}', '${l}', '${farbe}', '${preis}', '${anbieter}', '${bild}', '${beschreibung}')`, (error) => {
+	
+		db.all(`SELECT * FROM users WHERE id > 0`, function(err, rows){
+			response.render('home', {
+				'anbieter':rows || []
+			});
+});
+});
+});
+*/
+				
+
 // Versuchsfunktion zum checken ob Session aktiv
 /* function sessionCheck(request, response) {
 	if(request.session.authenticated == false) {
@@ -196,6 +236,7 @@ app.post("/addProduct", function(request, response){
 	const preis = request.body.preis;
 	const anbieter = request.session.username;
 	const bild = request.body.bildlink;
+	const beschreibung = request.body.beschreibung;
 	console.log(name);
 	console.log(kategorie);
 	console.log(s);
@@ -205,13 +246,23 @@ app.post("/addProduct", function(request, response){
 	console.log(preis);
 	console.log(anbieter);
 	console.log(bild);
+	console.log(beschreibung);
 
 	// Datensatz in Tabelle produkte einfügen
-	const sql = `INSERT INTO produkte (name, kategorie, s, m, l, farbe, preis, anbieter, bild) 
-		VALUES ('${name}', '${kategorie}', '${s}', '${m}', '${l}', '${farbe}', '${preis}', '${anbieter}', '${bild}')`;
+	const sql = `INSERT INTO produkte (name, kategorie, s, m, l, farbe, preis, anbieter, bild, beschreibung) 
+		VALUES ('${name}', '${kategorie}', '${s}', '${m}', '${l}', '${farbe}', '${preis}', '${anbieter}', '${bild}', '${beschreibung}')`;
 	console.log(sql);
 	db.run(sql, function(err){
-		response.redirect("/anbieter");
+		var sessionVariable = request.session.authenticated;
+		let element = "ELEMENT"
+		db.all(`SELECT * FROM produkte WHERE anbieter ='${element}'`, function(err, rows){
+			response.render('home', {
+			isLoggedIn: authenticated,
+			greeting: greeting,
+			sessionVariable: request.session.authenticated,
+			'produkte':rows || []
+		});
+	});
 	});
 	 
 });
@@ -224,7 +275,10 @@ app.get('/anbieter', (request, response) => {
 });
 
 app.get('/navbar', (request, response) => {
-	response.render('navbar');
+	var sessionVariable = request.session.authenticated;
+	response.render('navbar', {
+		sessionVariable: request.session.authenticated
+	});
 });
 
 app.get('/artikel', (request, response) => {
@@ -236,16 +290,28 @@ app.get('/artikel', (request, response) => {
 
 app.get('/shirts', (request, response)=>{
 	var sessionVariable = request.session.authenticated;
-	response.render('shirts', {
+	let shirts = "T-Shirt"
+	db.all(`SELECT * FROM produkte WHERE kategorie='${shirts}'`,function(err,rows){
+		if (err){
+			console.log(err.message);
+		}
+	response.render('shirts',{'produkte' :rows || []}, {
 		sessionVariable: request.session.authenticated
 	});
+});
 });
 
 app.get('/pullis', (request, response)=>{
 	var sessionVariable = request.session.authenticated;
-	response.render('pullis', {
+	let pullover = "Pullover"
+	db.all(`SELECT * FROM produkte WHERE kategorie='${pullover}'`,function(err,rows){
+		if (err){
+			console.log(err.message);
+		}
+	response.render('pullis',{'produkte' :rows || []}, {
 		sessionVariable: request.session.authenticated
 	});
+});
 });
 
 app.get('/jacken', (request, response)=>{
@@ -298,30 +364,42 @@ app.get("/thrasher2", function(request,response){
 	});
 });
 
-app.get("/bs", function(request,response){
-	var sessionVariable = request.session.authenticated;
-	let element ="ELEMENT"
-	db.all(`SELECT * FROM users WHERE brand='${element}'`, function(err, rows){
-		if (err){
-			console.log(err.message);
-		}
-		response.render('bs', {
-			'anbieter':rows || [],
-			sessionVariable: request.session.authenticated
-		});
-		
-	});
-});
-
 app.get("/element", function(request,response){
 	var sessionVariable = request.session.authenticated;
 	let element ="ELEMENT"
-	db.all(`SELECT * FROM users WHERE username='${element}'`, (err, rows) => {
-		const banner = rows.banner
-		const brand = rows.brand
+	db.all(`SELECT * FROM produkte WHERE anbieter='${element}'`, (err, rows) => {
+		if (err){
+			console.log(err.message);
+		}
 
+		response.render('element',{'produkte' :rows || []}, {
+			sessionVariable: request.session.authenticated
+		});
 	});
-	response.render('element', {
+	});
+
+app.get("/elementShirt", function(req,res){
+	var sessionVariable = request.session.authenticated;
+	let name ="Shirt"
+	db.all(`SELECT * FROM produkte WHERE name='${shirt}'`, (err, rows) => {
+		if (err){
+			console.log(err.message);
+		}
+	res.render('element',{'produkte':rows || []}, {
+		sessionVariable: request.session.authenticated
+	});
+    });
+});
+app.get("/addproduct", function(request,response){
+	var sessionVariable = request.session.authenticated;
+	response.render('addproduct', {
+		sessionVariable: request.session.authenticated
+	});
+});
+
+app.get("/addprod", function(request,response){
+	var sessionVariable = request.session.authenticated;
+	response.render('addprod', {
 		sessionVariable: request.session.authenticated
 	});
 });

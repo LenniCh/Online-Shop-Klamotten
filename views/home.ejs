@@ -21,12 +21,15 @@
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
+                <%for (let i = 0; i<anbieter.length; i++){%>
+                        <li data-target="#myCarousel" data-slide-to="3+<%i%>"></li>
+                        <%}%>
             </ol>
         
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <a href="/thrasher">
+                    <a href="/thrasher2">
                         <img src="thrasherlogo.jpg" alt="Thrasher" style="width:100%;">
                     </a>
                 </div>
@@ -38,6 +41,12 @@
                 <div class="item">
                     <img src="vans-banner.jpg" alt="vans" style="width:100%;">
                 </div>
+                <%for (let i = 0; i<anbieter.length; i++){%>
+                  <div class="item">
+                      <a href="/element">
+                      <img src="<%=anbieter[i].banner%>" alt="<%=anbieter[i].brand%>" style="width:100%"></a>
+                   </div> 
+                   <%}%>
             </div>
         
             <!-- Left and right controls -->
