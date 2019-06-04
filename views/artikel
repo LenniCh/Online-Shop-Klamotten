@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <link href="main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link href="main.css" rel="stylesheet" type="text/css">
+
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <title>Shop</title>
+
+
+
+</head>
+
+<body>
+  <% include navbar %>
+
+  <div class="container">
+    <div class="header1">
+      <img src="/thrasherlogo.jpg" class="img-fluid">
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="bestellung">
+    <div class="row">
+
+      <div class="column-layout1">
+        <div class="main-column1">
+          <div class="container">
+
+            <div class="col-sm-4">
+              <img src="thrasherhoodie.jpg" class="img-fluid">
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="sidebar col-sm-4">
+        <h3>THRASHER SKATE MAG HOODIE</h3>
+        <br>
+        <br>
+        <p>- Black print</p>
+        <p>- Grey</p>
+        <p>- 100% Cotton</p>
+      </div>
+
+
+
+      <div class="jumbotron">
+        <div class="sidebar2 col-sm-4">
+          <form action="submit">
+
+            <h3>74,95 €</h3>
+            <br>
+            <p>Size</p>
+            <div class="btn-group" data-toggle="buttons">
+
+              <label class="btn btn-default active">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked>S
+              </label>
+
+              <label class="btn btn-default">
+                <input type="radio" name="options" id="option2" autocomplete="off">M
+              </label>
+
+              <label class="btn btn-default">
+                <input type="radio" name="options" id="option3" autocomplete="off">L
+              </label>
+
+              <label class="btn btn-default">
+                <input class="text-align-centre" type="radio" name="options" id="option4" autocomplete="off">XL
+              </label>
+              <br>
+            </div>
+            <br>
+            <br>
+            <br>
+            <p>Unit/s</p>
+            <input data-suffix="°C" value="0" min="0" max="40" type="number" />
+            <br>
+        </div>
+        </form>
+
+
+        <br>
+        <br>
+        <br>
+        <button class="btn-default btn-block">In den Warenkorb</button>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <footer>
+    <div class="wrap">
+      <div class="footer_left">
+        <p class="text-left">Thrasher Magazine</p>
+      </div>
+
+    </div>
+
+
+
+  </footer>
+
+  </nav>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</body>
+
+
+</html>

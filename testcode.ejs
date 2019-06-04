@@ -1,0 +1,8 @@
+const username = request.session.username;
+
+anbieterBanner = `SELECT banner FROM users WHERE anbieter ='${username}'`
+brandName = `SELECT brand FROM users WHERE username=${username}`
+
+<div src="anbieterBanner" class="jumbotron text-center">
+        <br><br><h1>brandName</h1><br><br>
+</div>

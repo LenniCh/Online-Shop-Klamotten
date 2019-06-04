@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>T-Shirts</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link href="main.css" rel="stylesheet" type="text/css">
+
+    </head>
+    <body>
+        <% include navbar %>
+        
+        <div class="jumbotron text-center">
+            <br><br><h1>Anbieter-/ Markenbanner</h1><br><br>
+        </div>
+        <div>
+            <a href="/">
+                <button class="back2Category">zurück zu Kategorien</button>
+            </a>
+        </div>
+        <br>
+        <br>
+        <div class="container">
+            <div class="page-header text-center">
+                <h1>Accessoires</h1>      
+            </div>
+        </div>
+        
+        <% if (sessionVariable) {%>
+            <% include addproduct %>
+        <%}%>
+    </body>
+</html>
