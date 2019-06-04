@@ -45,11 +45,17 @@ app.get('/', (request, response) => {
 	} else {
 		greeting = `Willkommen, ${username}!`;
 	}
+	db.all(`SELECT * FROM users WHERE id > 0`, function(err, rows){
+		if (err){
+			console.log(err.message);
+		}
 
 	response.render('home', {
 		isLoggedIn: authenticated,
-		greeting: greeting
+		greeting: greeting,
+		'anbieter':rows || []
 	});
+});
 
 });
 
@@ -215,12 +221,24 @@ app.get('/artikel', (request, response) => {
 	response.render('artikel');
 });
 
-app.get('/shirts', (request, response)=>{
-	response.render('shirts');
+app.get("/shirts", function(req,res){
+	let shirts = "T-Shirt"
+	db.all(`SELECT * FROM produkte WHERE kategorie='${shirts}'`,function(err,rows){
+		if (err){
+			console.log(err.message);
+		}
+		res.render('shirts',{'produkte' :rows || []});
+	});
 });
 
-app.get('/pullis', (request, response)=>{
-	response.render('pullis');
+app.get("/pullis", function(req,res){
+	let pullover = "Pullover"
+	db.all(`SELECT * FROM produkte WHERE kategorie='${pullover}'`,function(err,rows){
+		if (err){
+			console.log(err.message);
+		}
+		res.render('pullis',{'produkte' :rows || []});
+	});
 });
 
 app.get('/jacken', (request, response)=>{
@@ -250,9 +268,7 @@ app.get("/bs", function(req,res){
 	});
 });
 
-app.get("/pullover", function(req,res){
-	res.render('pullover');
-});
+
 app.get("/thrasher", function(req,res){
 	res.render('thrasher');
 });
@@ -269,12 +285,14 @@ app.get("/thrasher2", function(req,res){
 
 app.get("/element", function(req,res){
 	let element ="ELEMENT"
-	db.all(`SELECT * FROM users WHERE username='${element}'`, (err, rows) => {
-		const banner = rows.banner
-		const brand = rows.brand
-
-	});
-	res.render('element');
+	db.all(`SELECT * FROM produkte WHERE anbieter='${element}'`, (err, rows) => {
+		if (err){
+			console.log(err.message);
+		}
+	res.render('element',{'produkte':rows || []});
+    });
 });
+
+
 
 

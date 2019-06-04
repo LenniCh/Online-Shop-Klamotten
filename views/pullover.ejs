@@ -7,6 +7,13 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+    .col-sm-3{
+    background-color: lightgrey; 
+    border-style: solid; 
+    margin: 10px 10px 10px 90px;
+}
+  </style>
 </head>
 <body style="background-color: lightgrey;">
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -30,7 +37,21 @@
       </nav>
 
       <div class="col-sm-12 text-center">
-                <img src="pullis2.1.jpg" class="img-rounded" alt="Pullis">  
+                <img src="pullis2.jpg" class="img-responsive" class="img-rounded" alt="Pullis">  
       </div>
+
+      <div class="container-fluid" style="background-color:lightgrey">
+        <div class="row" style="background-color:lightgrey">
+            <%for (let i = 0; i<produkte.length; i++){%>
+              <div class="col-sm-3">
+                  <a href="/pullover" class="thumbnail">
+                    <img src="<%=produkte[i].bild%>" alt="Pullis">
+                    <p><%=produkte[i].name%> <br><%=produkte[i].preis%>€ <br> <%=produkte[i].anbieter%></p>
+                  </a>
+                    
+              </div> 
+            <%}%>
+            
+        </div> 
 </body>
 </html>
