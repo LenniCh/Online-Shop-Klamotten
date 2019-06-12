@@ -120,7 +120,8 @@
     
     <div class="container">
         <div class="header">
-            <img src="/element.jpg" class="img-fluid">
+          <a href="/element">
+            <img src="/element.jpg" class="img-fluid"></a>
         </div>
     </div>
   </div>
@@ -152,22 +153,30 @@
           <form action="submit">
 
             <h3><%=produkte[i].preis%> €</h3>
-            <%}%>
+            
             <br>
             <p>Size</p>
             <div class="btn-group btn-group-lg" data-toggle="buttons">
 
+              <%if (produkte[i].s == "on"){%>
               <label class="btn btn-default active">
                 <input type="radio" name="options" id="option1" autocomplete="off" checked>S
               </label>
+              <%}%>
 
+              <%if (produkte[i].m == "on"){%>
               <label class="btn btn-default">
                 <input type="radio" name="options" id="option2" autocomplete="off">M
               </label>
+              <%}%>
 
+              <%if (produkte[i].l == "on"){%>
               <label class="btn btn-default">
                 <input type="radio" name="options" id="option3" autocomplete="off">L
               </label>
+              <%}%>
+              <%}%>
+
               <br>
             </div>
             <br>
@@ -181,7 +190,7 @@
         <br>
         <br>
         <br>
-        <button style="font-size:1.7rem" class="btn-lg btn-block">In den Warenkorb</button>
+        <button style="font-size:1.7rem" class="btn-lg btn-block">Bestellen</button>
         </button>
       </div>
     </div>

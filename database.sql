@@ -8,18 +8,14 @@ CREATE TABLE produkte (
     farbe TEXT NOT NULL,
     preis NUMERIC NOT NULL,
     anbieter TEXT NOT NULL,
-    bild TEXT NOT NULL
-
+    bild TEXT NOT NULL,
+    beschreibung TEXT NOT NULL
     );
 
 
 
-INSERT INTO produkte(
-    name, kategorie, s, m, l, farbe, preis, anbieter, bild
-)
-VALUES (
-    "Hoodie", "Pullover", 1, 1, 1, "grau", 35.99, "Thrasher", "thrasherhoodie.jpg"
-);
+INSERT INTO produkte( name, kategorie, s, m, l, farbe, preis, anbieter, bild, beschreibung)
+VALUES ("Hoodie", "Pullover", 1, 1, 1, "grau", 35.99, "Thrasher", "thrasherhoodie.jpg","PulliPulliPulli");
 
 create table users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -30,4 +26,4 @@ create table users (
 
 
 INSERT INTO users(username, password, brand, banner) 
- VALUES("ELEMENT","1234", "ELEMENT","elementBanner.png");
+ VALUES("ELEMENT","1234", "ELEMENT","element.jpg");

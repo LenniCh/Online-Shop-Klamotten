@@ -23,24 +23,20 @@
                 <img src="element.jpg" class="img-rounded" alt="ELEMENT" style="width:70%">  
       </div>
 
-      <div>
-          <a href="/">
-              <button class="btn btn-primary btn-lg">
-                      <span class="glyphicon glyphicon-chevron-left"></span> Zurück zu Kategorien
-              </button>
-          </a>
-      </div>
       <div class="col-sm-12" style="background-color:lightgray;">   
 
       <div class="container-fluid" style="background-color:lightgrey">
             <div class="row" style="background-color:lightgrey">
                 <%for (let i = 0; i<produkte.length; i++){%>
-                  <div class="col-sm-3">
+                  <div class="col-sm-2">
                       <a href="/elementShirt" class="thumbnail">
-                        <img src="<%=produkte[i].bild%>" alt="Pullis">
+                        <img src="<%=produkte[i].bild%>" alt="Pullis" style="height:20%, width:20%">
                         <p><%=produkte[i].name%> <br><%=produkte[i].preis%>€</p>
                       </a>
-                        
+                      <form action="/entfernen" method="POST">
+                        <input type="text" name="name" placeholder="<%=produkte[i].name%>">
+                        <button type="submit">Entfernen</button>
+                    </form>
                   </div> 
                 <%}%>
                 

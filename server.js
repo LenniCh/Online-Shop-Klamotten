@@ -311,7 +311,7 @@ app.get('/artikel', (request, response) => {
 
 app.get("/shirts", function(request,response){
 	var sessionVariable = request.session.authenticated;
-	let shirts ="T-Shirts"
+	let shirts ="T-Shirt"
 	db.all(`SELECT * FROM produkte WHERE kategorie='${shirts}'`, function(err, rows){
 		if (err){
 			console.log(err.message);
